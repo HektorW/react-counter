@@ -1,0 +1,56 @@
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+$size: 100px;
+
+.number-container {
+  border: 2px solid #fff;
+  display: inline-block;
+  height: $size;
+  margin: 0 .25em;
+  overflow: hidden;
+  position: relative;
+  width: $size;
+}
+
+.number-value {
+  font-size: $size * .6;
+  left: 0;
+  line-height: $size;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+.transition {
+	&-enter {
+		opacity: 0;
+		transform: translate3d(0, $size, 0) scale(.5);
+
+		&-active {
+			opacity: 1;
+			transform: translate3d(0, 0, 0) scale(1);
+			transition: all .25s linear;
+		}
+	}
+
+	&-leave {
+		opacity: 1;
+		transform: translate3d(0, 0, 0) scale(1);
+
+		&-active {
+			opacity: 0;
+			transform: translate3d(0, -$size, 0) scale(.5);
+  			transition: all .25s cubic-bezier(0.55, 0.06, 0.68, 0.19);
+		}
+	}
+}
